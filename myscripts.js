@@ -83,7 +83,7 @@ class redTeammate {
 //Function to list People in the people array.
 //**Current Bugs- Can just keep clicking list, and it keeps populating with the same names. Clear on click? */
 const listPeopleChoices = () => {
-    const listElement = document.getElementById('people')
+    let listElement = document.getElementById('people')
     arrOfPeople.map(person => {
         const li = document.createElement("li")
         const button = document.createElement("button")
@@ -98,7 +98,7 @@ const listPeopleChoices = () => {
 
 //Button to make a person a player.
 //Only console logs for now. And not very well. 
-//Need to make this button move the player from the person array to the player array, and add values
+//Need to make this button move the player from the person array to the player array, and add
 const makePlayer = (id) => {
     console.log(`li ${id} was clicked!`)
 }
