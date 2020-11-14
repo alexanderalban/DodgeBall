@@ -1,3 +1,5 @@
+// Array of People, our Default
+
 const arrOfPeople = [
     {
         id: 2,
@@ -50,20 +52,36 @@ const arrOfPeople = [
     },
 ]
 
-const listOfPlayers = []
-const blueTeam = []
-const redTeam = []
+// Array where they will be moved from people to List of Players
+const listOfPlayers = [];
 
+//Blue Team Array
+const blueTeam = [];
+
+//Red Team Array
+const redTeam = [];
+
+
+//Player Class
 class player {
     constructor() { }
 }
+
+
+//Blue Team Class
 class blueTeammate {
     constructor() { }
 }
+
+
+//Red Team Class
 class redTeammate {
     constructor() { }
 }
 
+
+//Function to list People in the people array.
+//**Current Bugs- Can just keep clicking list, and it keeps populating with the same names. Clear on click? */
 const listPeopleChoices = () => {
     const listElement = document.getElementById('people')
     arrOfPeople.map(person => {
@@ -77,6 +95,10 @@ const listPeopleChoices = () => {
     })
 }
 
+
+//Button to make a person a player.
+//Only console logs for now. And not very well. 
+//Need to make this button move the player from the person array to the player array, and add values
 const makePlayer = (id) => {
     console.log(`li ${id} was clicked!`)
 }
