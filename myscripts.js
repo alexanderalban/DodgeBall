@@ -95,7 +95,9 @@ class Player {
         //Displaying Blue Team
         let blueElement = document.getElementById('blue')
         const li = document.createElement("li");
-        li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+        li.appendChild(document.createTextNode(newBlueRookie.name + " from " 
+            + newBlueRookie.placeBorn + " is now a member of the " + newBlueRookie.teamColor 
+            + " " + newBlueRookie.mascot + "."));
         blueElement.append(li);
     }
     addToRedTeam(id) {
@@ -115,7 +117,9 @@ class Player {
         //Displaying Red Team
         let redElement = document.getElementById('red')
         const li = document.createElement("li");
-        li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+        li.appendChild(document.createTextNode(newRedRookie.name + " from " 
+            + newRedRookie.placeBorn + " is now a member of the " + newRedRookie.teamColor 
+            + " " + newRedRookie.mascot + "."));
         redElement.append(li);
     }
 };
@@ -134,7 +138,7 @@ class BlueTeammate extends Player {
     constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
         super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, 
             yearsExperience);
-        this.mascot = "Eagle";
+        this.mascot = "Eagles";
         this.teamColor = "Blue";
     }
 };
@@ -145,7 +149,7 @@ class RedTeammate extends Player {
     constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
         super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, 
             yearsExperience);
-        this.mascot = "Cobra";
+        this.mascot = "Cobras";
         this.teamColor = "Red";
     }
 };
