@@ -77,15 +77,50 @@ class Player {
         this.isHealthy = isHealthy;
         this.yearsExperience = yearsExperience;
     }
-    addToBlueTeam() {
-        return new blueTeammate()
+    addToBlueTeam(id) {
+        console.log(`li ${id} was clicked!`)
+        let player = listOfPlayers.find(people => people.id === id);
+        let indexOfPlayer = listOfPlayers.indexOf(player);
+        console.log("Index is " + indexOfPlayer);
+        let playerMove = listOfPlayers.splice(indexOfPlayer, 1);
+        console.log(playerMove);
+        //Removing Player from Dodge Ball Player List
+        let list = document.getElementById('players');
+        list.removeChild(list.childNodes[indexOfPlayer]);
+        //Adding Player to Blue Team
+        let newBlueRookie = new BlueTeammate(this.id, this.name, this.age, this.skillSet, 
+            this.placeBorn, this.canThrowBall, this.canDodgeBall, this.hasPaid, this.isHealthy, 
+            this.yearsExperience);
+        blueTeam.push(newBlueRookie);
+        //Displaying Blue Team
+        let blueElement = document.getElementById('blue')
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+        blueElement.append(li);
     }
-    addToRedTeam() {
-        return new redTeammate()
+    addToRedTeam(id) {
+        console.log(`li ${id} was clicked!`)
+        let player = listOfPlayers.find(people => people.id === id);
+        let indexOfPlayer = listOfPlayers.indexOf(player);
+        let playerMove = listOfPlayers.splice(indexOfPlayer, 1);
+        //Removing Player from Dodge Ball Player List
+        let list = document.getElementById('players');
+        list.removeChild(list.childNodes[indexOfPlayer]);
+        console.log(playerMove);
+        //Adding Player to Red Team
+        let newRedRookie = new RedTeammate(this.id, this.name, this.age, this.skillSet, 
+            this.placeBorn, this.canThrowBall, this.canDodgeBall, this.hasPaid, this.isHealthy, 
+            this.yearsExperience);
+        redTeam.push(newRedRookie);
+        //Displaying Red Team
+        let redElement = document.getElementById('red')
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+        redElement.append(li);
     }
 };
 
-//Randomizers for Player values! The Variables don't work, but you will see the equations used in 
+//Randomizers for Player values! The Variables are not used, but you will see the equations used in 
 // the makePlayer Function below
 // let randomBallThrow = Math.random() <= 0.5;
 // let randomBallDodge = Math.random() <= 0.5;
@@ -95,8 +130,8 @@ class Player {
 
 
 //Blue Team Class
-class blueTeammate extends Player {
-    constructor(id, name, age, skillSet, placeBorn, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
+class BlueTeammate extends Player {
+    constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
         super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, 
             yearsExperience);
         this.mascot = "Eagle";
@@ -106,8 +141,8 @@ class blueTeammate extends Player {
 
 
 //Red Team Class
-class redTeammate extends Player {
-    constructor(id, name, age, skillSet, placeBorn, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
+class RedTeammate extends Player {
+    constructor(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
         super(id, name, age, skillSet, placeBorn, canThrowBall, canDodgeBall, hasPaid, isHealthy, 
             yearsExperience);
         this.mascot = "Cobra";
@@ -131,7 +166,7 @@ const listPeopleChoices = () => {
         li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
         listElement.append(li)
     })
-}
+};
 
 
 //Button to make a person a player.
@@ -140,7 +175,7 @@ const listPeopleChoices = () => {
 const makePlayer = (id) => {
     console.log(`li ${id} was clicked!`)
     let player = arrOfPeople.find(people => people.id === id);
-    console.log("player is " + player);
+    console.log("player is " + player.name);
     let indexOfPlayer = arrOfPeople.indexOf(player);
     console.log(indexOfPlayer);
     let playerMove = arrOfPeople.splice(indexOfPlayer, 1);
@@ -150,6 +185,7 @@ const makePlayer = (id) => {
     let dodgeBallPlayer = new Player(player.id, player.name, player.age, player.skillSet,
          player.placeBorn, Math.random() <= 0.5, Math.random() <= 0.5, Math.random() <= 0.5, 
          Math.random() <= 0.5, Math.floor(Math.random() * 10));
+    console.log("New Player is " + dodgeBallPlayer.name);
     listOfPlayers.push(dodgeBallPlayer);
     console.log(listOfPlayers);
     // displaying listOfPlayers
@@ -157,11 +193,11 @@ const makePlayer = (id) => {
     const li = document.createElement("li");
     const blueButton = document.createElement("button");
     blueButton.innerHTML = "Join Blue Team";
-    blueButton.addEventListener('click', function () { addToBlueTeam() });
+    blueButton.addEventListener('click', function () { dodgeBallPlayer.addToBlueTeam(player.id) });
     li.appendChild(blueButton);
     const redButton = document.createElement("button");
     redButton.innerHTML = "Join Red Team";
-    redButton.addEventListener('click', function () { addToRedTeam() });
+    redButton.addEventListener('click', function () { dodgeBallPlayer.addToRedTeam(player.id) });
     li.appendChild(redButton);
     li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
     playerElement.append(li);
