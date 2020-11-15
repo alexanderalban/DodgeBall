@@ -80,6 +80,9 @@ class Player {
     addToBlueTeam() {
         return new blueTeammate()
     }
+    addToRedTeam() {
+        return new redTeammate()
+    }
 };
 
 //Randomizers for Player values! The Variables don't work, but you will see the equations used in 
@@ -149,4 +152,17 @@ const makePlayer = (id) => {
          Math.random() <= 0.5, Math.floor(Math.random() * 10));
     listOfPlayers.push(dodgeBallPlayer);
     console.log(listOfPlayers);
-}
+    // displaying listOfPlayers
+    let playerElement = document.getElementById('players')
+    const li = document.createElement("li");
+    const blueButton = document.createElement("button");
+    blueButton.innerHTML = "Join Blue Team";
+    blueButton.addEventListener('click', function () { addToBlueTeam() });
+    li.appendChild(blueButton);
+    const redButton = document.createElement("button");
+    redButton.innerHTML = "Join Red Team";
+    redButton.addEventListener('click', function () { addToRedTeam() });
+    li.appendChild(redButton);
+    li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+    playerElement.append(li);
+};
