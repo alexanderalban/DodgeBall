@@ -99,6 +99,7 @@ class Player {
             + newBlueRookie.placeBorn + " is now a member of the " + newBlueRookie.teamColor 
             + " " + newBlueRookie.mascot + "."));
         blueElement.append(li);
+        document.getElementById('blue').style.color = 'rgb(68,93,178)';
     }
     addToRedTeam(id) {
         console.log(`li ${id} was clicked!`)
@@ -121,6 +122,7 @@ class Player {
             + newRedRookie.placeBorn + " is now a member of the " + newRedRookie.teamColor 
             + " " + newRedRookie.mascot + "."));
         redElement.append(li);
+        document.getElementById('red').style.color = 'rgb(169,25,30)';
     }
 };
 
@@ -195,14 +197,21 @@ const makePlayer = (id) => {
     // displaying listOfPlayers
     let playerElement = document.getElementById('players')
     const li = document.createElement("li");
+    //Blue Team Button
     const blueButton = document.createElement("button");
     blueButton.innerHTML = "Join Blue Team";
     blueButton.addEventListener('click', function () { dodgeBallPlayer.addToBlueTeam(player.id) });
     li.appendChild(blueButton);
+    blueButton.style.background = 'rgb(68,93,178)';
+    blueButton.style.color = 'white';
+    //Red Team Button
     const redButton = document.createElement("button");
     redButton.innerHTML = "Join Red Team";
     redButton.addEventListener('click', function () { dodgeBallPlayer.addToRedTeam(player.id) });
     li.appendChild(redButton);
+    redButton.style.background = 'rgb(169,25,30)';
+    redButton.style.color = 'white'
+    //Player Name List
     li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
     playerElement.append(li);
 };

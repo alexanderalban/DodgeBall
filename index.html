@@ -5,33 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
     <title>Dodge Ball</title>
   </head>
   <header>
     <h1>Dodge Ball!</h1>
   </header>
   <body>
-    <section id="people-section">
-      <!-- Default People List -->
-      <h4>List Of People</h4>
-      <ul id="people"></ul>
-    </section>
-    <button onclick="listPeopleChoices()">List People</button>
-    <section id="player-section">
-      <!-- List of Players, who used to be in the "People" category. Will be added to Red or Blue Team -->
-      <h4>Dodge Ball Players</h4>
-      <ul id="players"></ul>
-    </section>
-    <section id="blue-team-section">
-      <!-- Blue Team List -->
-      <h4>Blue Team</h4>
-      <ul id="blue"></ul>
-    </section>
-    <section id="red-team-section">
-      <!-- Red Team List -->
-      <h4>Red Team</h4>
-      <ul id="red"></ul>
-    </section>
+    <main>
+      <section id="people-section">
+        <!-- Default People List -->
+        <h4>List Of People</h4>
+        <ul id="people"></ul>
+        <button onclick="listPeopleChoices()">List People</button>
+      </section>
+      <section id="player-section">
+        <!-- List of Players, who used to be in the "People" category. Will be added to Red or Blue Team -->
+        <h4>Dodge Ball Players</h4>
+        <ul id="players"></ul>
+      </section>
+      <section id="blue-team-section">
+        <!-- Blue Team List -->
+        <h4>Blue Team</h4>
+        <ul id="blue"></ul>
+      </section>
+      <section id="red-team-section">
+        <!-- Red Team List -->
+        <h4>Red Team</h4>
+        <ul id="red"></ul>
+      </section>
+    </main>
     <script src="myscripts.js"></script>
   </body>
 </html>
