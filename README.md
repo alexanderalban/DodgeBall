@@ -2,6 +2,8 @@
 
 DodgeBall App for ACA 211
 
+CODE PLAN
+
 The goal of this application is to take a list of people, be able to move them from being in the "people" category to the "player" category, and them assign them to either the Blue Team, or the Red Team.
 
 Here is a list of what we already have with the provided code:
@@ -33,7 +35,7 @@ What We Have, HTML:
 
 4. A section to list members of Red Team
 
-CODE PLAN
+What We Need:
 
 1. Can add People to Players - When clicked, can add People to the Players column while removing them from the People list. Also need to add new values of a player to them
    i. Use the class keyword to create a template of a dodgeBallPlayer that required canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience.
@@ -46,16 +48,17 @@ CODE PLAN
 
 3. Uses class - This is not a hack job. You should use class to add the new properties you need and extend when you need.
 
-EXTENDED PRACTICE
+The Basics:
+-We have an array of people.
+-We need to push the chosen person into the Player array for eligibility to add to a team
+-We then select whether that person is on the red team or blue team, and push them there
 
-1. Add an input at the top of the window that allows for a user to add new people!
+The Not-So-Basics:
+-Add people to a Player class, which has the pre-requested values. This can be done using the 'new' keyword with Player, importing their current values and adding new ones (randomizer?)
+-We need to remove them from the previous list (slice)
+-We need to display the Players by appending them to a new list
+-append buttons to move them to red and blue teams
+-remove and add them to the teams similarly to when they were moved from People to Player
+-extend a new class with mascot and color values
 
-2. Make a randomizer that automatically selects teams for us!
-
-3. Add multiple teams to add players too.
-
-4. Change the color of the text for each player based on the color of their team!
-
-5. Make a button to remove Players from Teams and move them back to the Players list.
-
-6. Make a button to remove Players from the Players List and move them into the People List.
+Please see comments within code!

@@ -187,7 +187,9 @@ const makePlayer = (id) => {
     let playerMove = arrOfPeople.splice(indexOfPlayer, 1);
     console.log(arrOfPeople);
     console.log(playerMove);
+    //Reset People List
     listPeopleChoices();
+    //Change Player from People to Player
     let dodgeBallPlayer = new Player(player.id, player.name, player.age, player.skillSet,
          player.placeBorn, Math.random() <= 0.5, Math.random() <= 0.5, Math.random() <= 0.5, 
          Math.random() <= 0.5, Math.floor(Math.random() * 10));
@@ -212,6 +214,8 @@ const makePlayer = (id) => {
     redButton.style.background = 'rgb(169,25,30)';
     redButton.style.color = 'white'
     //Player Name List
-    li.appendChild(document.createTextNode(player.name + " - " + player.skillSet));
+    li.appendChild(document.createTextNode(dodgeBallPlayer.name + " - Can they dodge? - " + dodgeBallPlayer.canDodgeBall 
+     + " - Can they throw? - " + dodgeBallPlayer.canThrowBall + " - Are they healthy? - " + 
+     dodgeBallPlayer.isHealthy + " - Years of Experience - " + dodgeBallPlayer.yearsExperience));
     playerElement.append(li);
 };
